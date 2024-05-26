@@ -18,7 +18,7 @@ app = Flask(__name__)
 # Load the trained model
 model = None
 
-@app.before_first_request
+# @app.before_first_request
 def load_model():
     global model
     # Load the model architecture from JSON file
@@ -28,6 +28,7 @@ def load_model():
     model = model_from_json(loaded_model_json)
     # Load the model weights
     model.load_weights('modelGG.h5')
+app.before_request(load_model)
 
 @app.route('/')
 
@@ -45,46 +46,46 @@ def index():
 
         if(company=="Apple"):
             company=0
-            df1= pd.read_csv(r'Data\0.csv')
+            df1= pd.read_csv(r'Data/0.csv')
         elif(company=="Cisco"):
             company=1
-            df1= pd.read_csv(r'Data\1.csv')
+            df1= pd.read_csv(r'Data/1.csv')
         elif(company=="CocaCola"):
             company=2
-            df1= pd.read_csv(r'Data\2.csv')
+            df1= pd.read_csv(r'Data/2.csv')
         elif(company=="Google"):
             company=3
-            df1= pd.read_csv(r'Data\3.csv')
+            df1= pd.read_csv(r'Data/3.csv')
         elif(company=="IBM"):
             company=4
-            df1= pd.read_csv(r'Data\4.csv')
+            df1= pd.read_csv(r'Data/4.csv')
         elif(company=="Intel"):
             company=5
-            df1= pd.read_csv(r'Data\5.csv')
+            df1= pd.read_csv(r'Data/5.csv')
         elif(company=="JPMorgan"):
             company=6
-            df1= pd.read_csv(r'Data\6.csv')
+            df1= pd.read_csv(r'Data/6.csv')
         elif(company=="Microsoft"):
             company=7
-            df1= pd.read_csv(r'Data\7.csv')
+            df1= pd.read_csv(r'Data/7.csv')
         elif(company=="McDonalds"):
             company=8
-            df1= pd.read_csv(r'Data\8.csv')
+            df1= pd.read_csv(r'Data/8.csv')
         elif(company=="Nike"):
             company=9
-            df1= pd.read_csv(r'Data\9.csv')
+            df1= pd.read_csv(r'Data/9.csv')
         elif(company=="Verizon"):
             company=10
-            df1= pd.read_csv(r'Data\10.csv')
+            df1= pd.read_csv(r'Data/10.csv')
         elif(company=="Visa"):
             company=11
-            df1= pd.read_csv(r'Data\11.csv')
+            df1= pd.read_csv(r'Data/11.csv')
         elif(company=="Walmart"):
             company=12
-            df1= pd.read_csv(r'Data\12.csv')
+            df1= pd.read_csv(r'Data/12.csv')
         elif(company=="Disney"):
             company=13
-            df1= pd.read_csv(r'Data\13.csv')
+            df1= pd.read_csv(r'Data/13.csv')
 
 
 
